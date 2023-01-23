@@ -1,0 +1,23 @@
+{
+  "name": "module10challenge-team-profile-generator",
+  "version": "1.0.0",
+  "description": "Module 10 Challenge: OOP - Team Profile Generator UCF Coding Bootcamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hfrancis7/Module10Challenge-Team-Profile-Generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hfrancis7/Module10Challenge-Team-Profile-Generator/issues"
+  },
+  "homepage": "https://github.com/hfrancis7/Module10Challenge-Team-Profile-Generator#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
