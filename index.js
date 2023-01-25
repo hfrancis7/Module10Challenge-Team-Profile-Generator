@@ -7,26 +7,7 @@ const Intern = require("./lib/Intern")
 
 let employees = [];
 
-//TODO: 
-//using inquirer,
-    //get the team manager's
-        //name
-        //employee ID
-        //email address
-        //office number
-
-    //present a menu option that is able to loop
-        //choose engineer or intern
-            //choosing engineer:
-                //name
-                //id
-                //email
-                //github
-            //choose intern:
-                //name
-                //id
-                //email
-                //school
+//TODO:
     //when complete, html file generates
 
 //initates program
@@ -49,7 +30,7 @@ function selectEmployeeType(){
         switch(data.add_Empl_opt){
             case "Engineer": createEngineer(); break;
             case "Intern": createIntern(); break;
-            case "Finished": return;
+            case "Finished": createHTML(); break;
             default: console.log("[ERROR] Valid option not selected. (" + option + ")");
         }
     })
@@ -129,13 +110,86 @@ function createEngineer(){
     })
 }
 
-//creates intern using inquirer, pushes engineer to employee arr
+//creates intern using inquirer, pushes intern to employee arr
 function createIntern(){
-    console.log("Intern");
+    inquirer
+    .prompt([
+        {
+            type: "input",
+            name: "int_Name",
+            message: "What is the intern's name?",
+            validate: (value) => {if(value){return true}else{return "Please enter a response."}}
+        },
+        {
+            type: "input",
+            name: "int_ID",
+            message: "What is the intern's ID?",
+            validate: (value) => {if(value){return true}else{return "Please enter a response."}}
+        },
+        {
+            type: "input",
+            name: "int_email",
+            message: "What is the intern's email address?",
+            validate: (value) => {if(value){return true}else{return "Please enter a response."}}
+        },
+        {
+            type: "input",
+            name: "int_school",
+            message: "What is the intern's school?",
+            validate: (value) => {if(value){return true}else{return "Please enter a response."}}
+        },
+    ])
+    .then((data) => {
+        const intern =  new Intern(data.int_Name, data.int_ID, data.int_email, data.int_school);
+        employees.push(intern);
+        selectEmployeeType();
+    })
 }
 
+//creates HTML file using employees arr
+function createHTML(){
+    let fileHead = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Team Builder</title>
+</head>
+<body>
+    <h1 class="titleHeader">Team Builder</h1>    
+`
+const fileTail = `
+</body>
+</html>`
 
+    for(let i = 0; i < employees.length; i++){
+        let extra;
+        switch(employees[i].getRole()){
+            case "Manager": extra = "Office Number: " + employees[i].getOfficeNumber(); break;
+            case "Engineer": extra = "Github: <a href=\"https://github.com/" + employees[i].getGithub() + "\" target=\"_blank\"> https://github.com/" + employees[i].getGithub() + "</a>"; break;
+            case "Intern": extra = "School: " + employees[i].getSchool(); break;
+            default: console.log("ERROR: Invalid Role");
 
+        }
+        const newCard = `
+        <div class="card">
+            <h2>${employees[i].getName()}</h2>
+            <h3>${employees[i].getRole()}</h3>
+            <h3>${employees[i].getId()}</h3>
+            <h3>${employees[i].getEmail()}</h3>
+            <h3>${extra}</h3>
+        </div>`
+        fileHead += newCard;
+    }
+
+    fileHead += fileTail;
+    
+    fs.writeFile("./dist/index.html", fileHead, (err) =>
+    err ? console.error(err) : console.log('\nSuccess'));
+}
 
 //TODO:
 //generate HTML file from user's input data

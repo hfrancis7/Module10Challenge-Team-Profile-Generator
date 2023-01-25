@@ -1,0 +1,18 @@
+.titleHeader{
+    background-color: #f40076;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 50px;
+}
+
+.card{
+    margin: 25px;
+    padding: 5px;
+    font-size: 25px;
+}
+
+.cardHeader{
+    background-color: #6290C8;
+    color: white;
+}
