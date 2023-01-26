@@ -155,13 +155,17 @@ function createHTML(){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/reset.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Team Builder</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>My Team</title>
 </head>
 <body>
-    <h1 class="titleHeader">Team Builder</h1>    
+    <h1 class="titleHeader">My Team</h1>
+    <section class="flex flex-wrap justify-center">  
 `
 const fileTail = `
+    </section>
 </body>
 </html>`
 
@@ -176,12 +180,20 @@ const fileTail = `
         }
         const newCard = `
         <div class="card">
-            <h2>${employees[i].getName()}</h2>
-            <h3>${employees[i].getRole()}</h3>
-            <h3>${employees[i].getId()}</h3>
-            <h3>${employees[i].getEmail()}</h3>
-            <h3>${extra}</h3>
-        </div>`
+            <section class = "cardHeader">
+                <h2>${employees[i].getName()}</h2>
+                <h3>${employees[i].getRole()}</h3>
+            </section>
+            <section class = "cardBody">
+                <ul class="cardList">
+                    <li>ID: ${employees[i].getId()}</li>
+                    <li>Email: ${employees[i].getEmail()}</li>
+                    <li>${extra}</li>
+                </ul>
+            </section>
+        </div>
+        
+        `
         fileHead += newCard;
     }
 
