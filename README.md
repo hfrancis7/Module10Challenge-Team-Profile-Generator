@@ -35,6 +35,7 @@ The HTML page uses both custom CSS to style the page.
 - Once you choose "Finish," an HTML file called "index.html" will be generated in the "dist" folder
   - NOTE: This project uses a seperate style.css and reset.css used for styling purposes. These are located in the "./dist/css"
   
+  ![Sample Page](./dist/screenshots/sampleHTML.jpg "Sample Page")
  - Demo Video: https://clipchamp.com/watch/0dpsNdfirwG
 
 ## License
