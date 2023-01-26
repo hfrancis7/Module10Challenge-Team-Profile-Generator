@@ -34,6 +34,8 @@ The HTML page uses both custom CSS to style the page.
 - After all questions about the manager are answered, you will be prompted if you want to add an Engineer, an Intern, or if you are finished. The menu will continue cycling as you add Engineers and Interns until you choose "Finish".
 - Once you choose "Finish," an HTML file called "index.html" will be generated in the "dist" folder
   - NOTE: This project uses a seperate style.css and reset.css used for styling purposes. These are located in the "./dist/css"
+  
+ - Demo Video: https://clipchamp.com/watch/0dpsNdfirwG
 
 ## License
 This project is covered by the following license: 
