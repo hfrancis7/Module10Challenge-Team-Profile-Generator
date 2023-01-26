@@ -179,7 +179,7 @@ const fileTail = `
         <div class="card">
             <section class = "cardHeader">
                 <h2>${employees[i].getName()}</h2>
-                <h3>${employees[i].getRole()}</h3>
+                <h3>${emoji} ${employees[i].getRole()}</h3>
             </section>
             <section class = "cardBody">
                 <ul class="cardList">
