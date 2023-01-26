@@ -7,9 +7,6 @@ const Intern = require("./lib/Intern")
 
 let employees = [];
 
-//TODO:
-    //when complete, html file generates
-
 //initates program
 function init(){
     createManager();
@@ -156,13 +153,12 @@ function createHTML(){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/reset.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>My Team</title>
 </head>
 <body>
     <h1 class="titleHeader">My Team</h1>
-    <section class="flex flex-wrap justify-center">  
+    <section class="flex-sect">  
 `
 const fileTail = `
     </section>
@@ -187,7 +183,7 @@ const fileTail = `
             <section class = "cardBody">
                 <ul class="cardList">
                     <li>ID: ${employees[i].getId()}</li>
-                    <li>Email: ${employees[i].getEmail()}</li>
+                    <li>Email: <a href="mailto:${employees[i].getEmail()}">${employees[i].getEmail()}</a></li>
                     <li>${extra}</li>
                 </ul>
             </section>
@@ -200,11 +196,7 @@ const fileTail = `
     fileHead += fileTail;
     
     fs.writeFile("./dist/index.html", fileHead, (err) =>
-    err ? console.error(err) : console.log('\nSuccess'));
+    err ? console.error(err) : console.log('\nThe HTML file was successfully generated. It is called "index.html", and is located in the "dist" directory. If there was an "index.html" file already in that directory, it has been overwritten.'));
 }
-
-//TODO:
-//generate HTML file from user's input data
-    //clicking on an email address, default email program opens and populates TO field
 
 init();

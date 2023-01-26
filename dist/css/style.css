@@ -39,3 +39,9 @@ li{
     background-color: white;
     padding: 5px;
 }
+
+.flex-sect{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
