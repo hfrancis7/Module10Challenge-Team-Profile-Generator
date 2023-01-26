@@ -206,6 +206,5 @@ const fileTail = `
 //TODO:
 //generate HTML file from user's input data
     //clicking on an email address, default email program opens and populates TO field
-    //clicking on a github takes you to the github page
 
 init();
