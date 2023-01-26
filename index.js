@@ -167,10 +167,11 @@ const fileTail = `
 
     for(let i = 0; i < employees.length; i++){
         let extra;
+        let emoji;
         switch(employees[i].getRole()){
-            case "Manager": extra = "Office Number: " + employees[i].getOfficeNumber(); break;
-            case "Engineer": extra = "Github: <a href=\"https://github.com/" + employees[i].getGithub() + "\" target=\"_blank\"> https://github.com/" + employees[i].getGithub() + "</a>"; break;
-            case "Intern": extra = "School: " + employees[i].getSchool(); break;
+            case "Manager": extra = "Office Number: " + employees[i].getOfficeNumber(); emoji = "&#9749;"; break; 
+            case "Engineer": extra = "Github: <a href=\"https://github.com/" + employees[i].getGithub() + "\" target=\"_blank\"> https://github.com/" + employees[i].getGithub() + "</a>"; emoji = "&#128187;"; break;
+            case "Intern": extra = "School: " + employees[i].getSchool(); emoji = "&#128083;"; break;
             default: console.log("ERROR: Invalid Role");
 
         }
